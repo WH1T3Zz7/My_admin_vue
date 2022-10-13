@@ -34,13 +34,17 @@ export default {
 }
 .main {
   text-align: center;
-  line-height: 160px;
   margin-top: 25px;
   width: 98%;
   margin-left: 1%;
 }
 body > .el-container {
   margin-bottom: 40px;
+}
+body,html{
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  padding: 0;
+  margin: 0;
 }
 .el-container:nth-child(5) .el-aside,
 .el-container:nth-child(6) .el-aside {
