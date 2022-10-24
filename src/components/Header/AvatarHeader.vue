@@ -3,16 +3,16 @@
     <hr />
     <p class="avatar_userinfo" @click="jump_userinfo">个人信息</p>
     <p class="avatar_userinfo" @click="Ifexit()">退出登录</p>
-    <el-avatar id="avatar" shape="square" slot="reference" :src="require('@/assets/avata/avatar' + AvatarImage + '.png')"></el-avatar>
+    <el-avatar id="avatar" shape="square" slot="reference" :src="url"></el-avatar>
   </el-popover>
 </template>
 <script>
+import userimgurl from './userimgurl'
 export default {
   data() {
     return {
-      // 生成随机头像
-      squareUrl: require('@/assets/avata/avatar1.png'),
-      exit: 0
+      exit: 0,
+      url:'',
     }
   },
   methods: {
@@ -24,12 +24,10 @@ export default {
       this.$router.push('/login')
     }
   },
-  computed: {
-    AvatarImage() {
-      const imgName = Math.floor(Math.random() * (41 - 1)) + 1
-      return imgName
-    }
-  }
+  mounted(){
+    //获取随机头像路径
+    this.url = require('@/assets/avata/avatar' + userimgurl + '.jpg')
+  },
 }
 </script>
 
