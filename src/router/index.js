@@ -17,8 +17,10 @@ const routes = [
   { path: '/login', component: Login },
   {
     path: '/home',
+    name:"home",
     component: Home,
     children: [
+      { path: '/home', component: MainView },
       { path: 'userinfo', component: UserInfo },
       { path: 'main', component: MainView }
     ]
@@ -30,14 +32,21 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/home') {
+  if (to.path === '/home/') {
     const token = localStorage.getItem('token')
     if (token) {
       next()
     } else {
       next('/login')
     }
-  } else {
+  }else if(to.path === '/home'){
+    const token = localStorage.getItem('token')
+    if (token) {
+      next()
+    } else {
+      next('/login')
+    }
+  }else {
     next()
   }
 })
