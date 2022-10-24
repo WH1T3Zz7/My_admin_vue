@@ -20,9 +20,8 @@ const routes = [
     name:"home",
     component: Home,
     children: [
-      { path: '/home', component: MainView },
-      { path: 'userinfo', component: UserInfo },
-      { path: 'main', component: MainView }
+      { path: '/home', component: MainView }, //主页
+      { path: 'userinfo', component: UserInfo },  //个人信息
     ]
   }
 ]
