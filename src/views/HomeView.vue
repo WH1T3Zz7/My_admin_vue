@@ -1,10 +1,11 @@
+<!-- 主页 -->
 <template>
   <div>
     <el-container>
-      <Sidebar></Sidebar>
+      <el-aside style="width:auto;background-color: transparent;line-height:0px"><Sidebar></Sidebar></el-aside>
       <el-container>
-        <el-header style="height: 100px"> <SidebarHeader></SidebarHeader> </el-header>
-        <div class="main"><router-view></router-view></div>
+        <el-header><SidebarHeader></SidebarHeader></el-header>
+        <el-main style="margin-top:55px;text-align: center;"><router-view></router-view></el-main>
       </el-container>
     </el-container>
   </div>
@@ -32,12 +33,7 @@ export default {
   text-align: center;
   line-height: 200px;
 }
-.main {
-  text-align: center;
-  margin-top: 25px;
-  width: 98%;
-  margin-left: 1%;
-}
+
 body > .el-container {
   margin-bottom: 40px;
 }
