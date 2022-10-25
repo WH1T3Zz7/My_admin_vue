@@ -6,8 +6,8 @@
         <el-button @click="an" v-if="isCollapse == true" plain>展开</el-button>
         <el-button @click="on" v-else plain>关闭</el-button>
       </el-radio-group>
-      <el-menu-item index="0">
-        <i class="el-icon-s-home" @click="GoMain()"></i>
+      <el-menu-item index="0" @click="GoMain()">
+        <i class="el-icon-s-home"></i>
         <span slot="title">主页</span>
       </el-menu-item>
       <!-- <el-submenu index="1">
@@ -30,8 +30,8 @@
           <el-menu-item index="1-4-1">拖拽的实现</el-menu-item>
         </el-submenu>
       </el-submenu> -->
-      <el-menu-item index="1">
-        <i class="el-icon-s-data" @click="GoAnalyse()"></i>
+      <el-menu-item index="1" @click="GoAnalyse()">
+        <i class="el-icon-s-data"></i>
         <span slot="title">分析页</span>
       </el-menu-item>
       <el-menu-item index="2">
