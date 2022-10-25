@@ -4,6 +4,7 @@ import Login from '@/views/LoginView'
 import Home from '@/views/HomeView'
 import UserInfo from '@/views/userinfo/UserInfo'
 import MainView from '@/views/main/MainView'
+import Analyse from '@/views/Analyse'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,7 @@ const routes = [
     children: [
       { path: '/home', component: MainView }, //主页
       { path: 'userinfo', component: UserInfo },  //个人信息
+      { path: 'analyse', component: Analyse },  //个人信息
     ]
   }
 ]
