@@ -36,7 +36,7 @@
         </div>
       </div> -->
       <el-row :gutter="20">
-        <el-col :span="6">
+        <el-col :span="5">
           <div class="grid-content bg-purple" v-on:mouseover="touchi(1)" v-on:mouseout="leavei(1)">
             <i class="el-icon-user-solid HomeIcon" id="toichi1" style="background-color: #eeeeee;color:#2d8cf0;"></i>
             <div class="toichiinfo">
@@ -45,7 +45,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="5">
           <div class="grid-content bg-purple" v-on:mouseover="touchi(2)" v-on:mouseout="leavei(2)">
             <i class="el-icon-s-goods HomeIcon" id="toichi2" style="background-color: #eeeeee;color:#f25d42;"></i>
             <div class="toichiinfo">
@@ -54,7 +54,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="5">
           <div class="grid-content bg-purple" v-on:mouseover="touchi(4)" v-on:mouseout="leavei(4)">
             <i class="el-icon-s-finance HomeIcon" id="toichi4" style="background-color: #eeeeee;color:#f4516c"></i>
             <div class="toichiinfo">
@@ -63,7 +63,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="5">
           <div class="grid-content bg-purple" v-on:mouseover="touchi(3)" v-on:mouseout="leavei(3)">
             <i class="el-icon-s-order HomeIcon" id="toichi3" style="background-color: #eeeeee;color:#64d572;"></i>
             <div class="toichiinfo">
