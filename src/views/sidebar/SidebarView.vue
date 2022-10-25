@@ -10,7 +10,7 @@
         <i class="el-icon-s-home" @click="GoMain()"></i>
         <span slot="title">主页</span>
       </el-menu-item>
-      <el-submenu index="1">
+      <!-- <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-s-data"></i>
           <span slot="title">可视化</span>
@@ -29,7 +29,11 @@
           <span slot="title">交互</span>
           <el-menu-item index="1-4-1">拖拽的实现</el-menu-item>
         </el-submenu>
-      </el-submenu>
+      </el-submenu> -->
+      <el-menu-item index="1">
+        <i class="el-icon-s-data" @click="GoAnalyse()"></i>
+        <span slot="title">分析页</span>
+      </el-menu-item>
       <el-menu-item index="2">
         <i class="el-icon-user-solid"></i>
         <span slot="title">用户</span>
@@ -70,8 +74,11 @@ export default {
       console.log(this.isCollapse)
     },
     GoMain() {
-      this.$router.push('/home/main')
-    }
+      this.$router.push('/home')
+    },
+    GoAnalyse(){
+      this.$router.push('/home/analyse')
+    },
   }
 }
 </script>
