@@ -9,12 +9,7 @@
       </div>
     </div>
     <div class="Bread">
-      <el-breadcrumb separator-class="el-icon-arrow-right">
-        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-      </el-breadcrumb>
+      <BreadVue></BreadVue>
     </div>
   </div>
 </template>
@@ -24,12 +19,19 @@
 import FullScroll from '@/components/Header/ScreenFull.vue'
 // 导入头像组件
 import Avatar from '@/components/Header/AvatarHeader.vue'
-
+// 导入面包屑
+import BreadVue from '../components/Bread.vue'
 export default {
   components: {
     FullScroll,
-    Avatar
-  }
+    Avatar,
+    BreadVue
+  },
+  data(){
+    return{
+      breadList:null,
+    }
+  },
 }
 </script>
 
@@ -55,9 +57,6 @@ export default {
 }
 .header i {
   float: right;
-}
-.Bread {
-  margin: 0px;
 }
 #app h1 {
   margin-top: 0;

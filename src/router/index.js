@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '@/views/LoginView'
-import Home from '@/views/HomeView'
-import UserInfo from '@/views/userinfo/UserInfo'
-import MainView from '@/views/main/MainView'
-import Analyse from '@/views/Analyse'
 
 Vue.use(VueRouter)
 
@@ -14,16 +9,48 @@ VueRouter.prototype.push = function push(to) {
 }
 
 const routes = [
-  { path: '/', component: Login },
-  { path: '/login', component: Login },
+  { 
+    path: '/', 
+    component: ()=>import("@/views/LoginView") 
+  },
+  { 
+    path: '/login', 
+    name: "login",
+    component: ()=>import("@/views/LoginView"),
+  },
   {
     path: '/home',
     name:"home",
-    component: Home,
+    component: ()=>import("@/views/HomeView"),
+    meta:{
+      title:'首页',
+      path:"/home"
+    },
     children: [
-      { path: '/home', component: MainView }, //主页
-      { path: 'userinfo', component: UserInfo },  //个人信息
-      { path: 'analyse', component: Analyse },  //个人信息
+      { //主页
+        path: '/home', 
+        component: ()=>import("@/views/main/MainView"),
+        meta:{
+          title:'',
+          path:"/home"
+        }
+      }, 
+      { //个人信息
+        path: 'userinfo', 
+        component: ()=>import("@/views/userinfo/UserInfo"), 
+        meta:{
+          title:'个人中心',
+          path:"/userinfo"
+        }
+      },  
+      { //分析页
+        path: 'analyse', 
+        component: ()=>import("@/views/Analyse"),
+        meta:{
+          title:'分析页',
+          path:"/analyse"
+        }
+      },  
     ]
   }
 ]
