@@ -5,7 +5,7 @@
       <el-aside style="width:auto;background-color: transparent;line-height:0px"><Sidebar></Sidebar></el-aside>
       <el-container>
         <el-header><SidebarHeader></SidebarHeader></el-header>
-        <el-main style="margin-top:55px;text-align: center;"><router-view></router-view></el-main>
+        <el-main style="margin-top:55px;text-align: center;padding: 0px 0px 0px 20px;"><router-view></router-view></el-main>
       </el-container>
     </el-container>
   </div>
