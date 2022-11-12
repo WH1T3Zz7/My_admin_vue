@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     jump_userinfo() {
-      this.$router.push('/home/userinfo')
+      this.$router.push('/home/usermanagement/userinfo')
     },
     Ifexit() {
       localStorage.removeItem('token')
