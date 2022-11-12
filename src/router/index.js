@@ -35,20 +35,54 @@ const routes = [
           path:"/home"
         }
       }, 
-      { //个人信息
-        path: 'userinfo', 
-        component: ()=>import("@/views/userinfo/UserInfo"), 
+      { //用户管理
+        path: 'usermanagement',
+        component: ()=>import("@/views/UserManagement"),
         meta:{
-          title:'个人中心',
-          path:"/userinfo"
-        }
-      },  
+          title:'用户管理',
+          path:"/home/usermanagement"
+        },
+        children:[
+          { //个人信息
+            path: 'userinfo', 
+            component: ()=>import("@/views/userinfo/UserInfo"), 
+            meta:{
+              title:'个人中心',
+              path:"/userinfo"
+            }
+          },
+        ]
+      },
       { //分析页
         path: 'analyse', 
         component: ()=>import("@/views/Analyse"),
         meta:{
           title:'分析页',
           path:"/analyse"
+        }
+      },  
+      { //文章
+        path: 'article', 
+        component: ()=>import("@/views/Article"),
+        meta:{
+          title:'文章',
+          path:"/article"
+        }
+      },
+      { //团队
+        path: 'team', 
+        component: ()=>import("@/views/Team"),
+        meta:{
+          title:'团队',
+          path:"/team"
+        }
+      },  
+      { //项目
+        path: 'project', 
+        component: ()=>import("@/views/Project"),
+        meta:{
+          title:'项目',
+          path:"/project"
         }
       },  
     ]
@@ -59,7 +93,7 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to,from, next) => {
   if (to.path === '/home/') {
     const token = localStorage.getItem('token')
     if (token) {
