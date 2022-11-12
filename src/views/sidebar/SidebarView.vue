@@ -6,45 +6,29 @@
         <el-button @click="an" v-if="isCollapse == true" plain>展开</el-button>
         <el-button @click="on" v-else plain>关闭</el-button>
       </el-radio-group>
-      <el-menu-item index="0" @click="GoMain()">
+      <el-menu-item index="0" @click="Gorouter('/home')" class="menu">
         <i class="el-icon-s-home"></i>
         <span slot="title">主页</span>
       </el-menu-item>
-      <!-- <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-s-data"></i>
-          <span slot="title">可视化</span>
-        </template>
-        <el-menu-item-group>
-          <span slot="title">常用图表类型</span>
-          <el-menu-item index="1-1">柱状图</el-menu-item>
-          <el-menu-item index="1-2">折线图</el-menu-item>
-          <el-menu-item index="1-2">饼图</el-menu-item>
-          <el-menu-item index="1-2">散点图</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="动画">
-          <el-menu-item index="1-3">数据过渡动画</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <span slot="title">交互</span>
-          <el-menu-item index="1-4-1">拖拽的实现</el-menu-item>
-        </el-submenu>
-      </el-submenu> -->
-      <el-menu-item index="1" @click="GoAnalyse()">
+      <el-menu-item index="1" @click="Gorouter('/home/analyse')" class="menu">
         <i class="el-icon-s-data"></i>
-        <span slot="title">分析页</span>
+        <span slot="title">分析</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="2" @click="Gorouter('/home/usermanagement')" class="menu">
         <i class="el-icon-user-solid"></i>
         <span slot="title">用户</span>
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="3" @click="Gorouter('/home/article')" class="menu">
         <i class="el-icon-document"></i>
         <span slot="title">文章</span>
       </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">设置</span>
+      <el-menu-item index="4" @click="Gorouter('/home/team')" class="menu">
+        <i class="el-icon-s-flag"></i>
+        <span slot="title">团队</span>
+      </el-menu-item>
+      <el-menu-item index="5" @click="Gorouter('/home/project')" class="menu">
+        <i class="el-icon-s-order"></i>
+        <span slot="title">项目</span>
       </el-menu-item>
     </el-menu>
   </div>
@@ -73,12 +57,12 @@ export default {
       this.isCollapse = true
       console.log(this.isCollapse)
     },
-    GoMain() {
-      this.$router.push('/home')
+    Gorouter(val) {
+      this.$router.push(val)
     },
-    GoAnalyse(){
-      this.$router.push('/home/analyse')
-    },
+    GoUserManagement(){
+
+    }
   }
 }
 </script>
@@ -95,5 +79,13 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+}
+.menu{
+  font-size: 18px;
+  font-weight: 500;
+}
+.menu i{
+  font-size: 20px;
+  margin-right: 10px;
 }
 </style>
