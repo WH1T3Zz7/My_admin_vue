@@ -27,8 +27,8 @@
             <el-col :span="24" style="margin-bottom:20px">
               <div class="grid-content bg-purple-dark">
                 <el-col :span="4">
-                  <div class="grid-content bg-purple" v-on:mouseover="touchi(1)" v-on:mouseout="leavei(1)">
-                    <i class="el-icon-user-solid HomeIcon" id="toichi1" style="background-color: #eeeeee;color:#2d8cf0;"></i>
+                  <div class="grid-content bg-purple border" v-on:mouseover="touchi(1)" v-on:mouseout="leavei(1)">
+                    <i class="el-icon-user-solid HomeIcon" id="toichi1" style="background-color: #fff;color:#2d8cf0;"></i>
                     <div class="toichiinfo">
                       <span style="font-size:16px;font-weight: 600;">新增用户</span>
                       <span>89,00</span>
@@ -36,8 +36,8 @@
                   </div>
                 </el-col>
                 <el-col :span="4">
-                  <div class="grid-content bg-purple" v-on:mouseover="touchi(2)" v-on:mouseout="leavei(2)">
-                    <i class="el-icon-s-goods HomeIcon" id="toichi2" style="background-color: #eeeeee;color:#f25d42;"></i>
+                  <div class="grid-content bg-purple border" v-on:mouseover="touchi(2)" v-on:mouseout="leavei(2)">
+                    <i class="el-icon-s-goods HomeIcon" id="toichi2" style="background-color: #fff;color:#f25d42;"></i>
                     <div class="toichiinfo">
                       <span style="font-size:16px;font-weight: 600;">新增商品</span>
                       <span>6,700</span>
@@ -45,8 +45,8 @@
                   </div>
                 </el-col>
                 <el-col :span="4">
-                  <div class="grid-content bg-purple" v-on:mouseover="touchi(4)" v-on:mouseout="leavei(4)">
-                    <i class="el-icon-s-finance HomeIcon" id="toichi4" style="background-color: #eeeeee;color:#f4516c"></i>
+                  <div class="grid-content bg-purple border" v-on:mouseover="touchi(4)" v-on:mouseout="leavei(4)">
+                    <i class="el-icon-s-finance HomeIcon" id="toichi4" style="background-color: #fff;color:#f4516c"></i>
                     <div class="toichiinfo">
                       <span style="font-size:16px;font-weight: 600;">交易金额</span>
                       <span>78,000</span>
@@ -54,8 +54,8 @@
                   </div>
                 </el-col>
                 <el-col :span="4">
-                  <div class="grid-content bg-purple" v-on:mouseover="touchi(3)" v-on:mouseout="leavei(3)">
-                    <i class="el-icon-s-order HomeIcon" id="toichi3" style="background-color: #eeeeee;color:#64d572;"></i>
+                  <div class="grid-content bg-purple border" v-on:mouseover="touchi(3)" v-on:mouseout="leavei(3)">
+                    <i class="el-icon-s-order HomeIcon" id="toichi3" style="background-color: #fff;color:#64d572;"></i>
                     <div class="toichiinfo">
                       <span style="font-size:16px;font-weight: 600;">处理订单</span>
                       <span>2,47</span>
@@ -63,8 +63,8 @@
                   </div>
                 </el-col>
                 <el-col :span="4">
-                  <div class="grid-content bg-purple" v-on:mouseover="touchi(5)" v-on:mouseout="leavei(5)">
-                    <i class="el-icon-share HomeIcon" id="toichi5" style="background-color: #eeeeee;color:#e46cbb;"></i>
+                  <div class="grid-content bg-purple border" v-on:mouseover="touchi(5)" v-on:mouseout="leavei(5)">
+                    <i class="el-icon-share HomeIcon" id="toichi5" style="background-color: #fff;color:#e46cbb;"></i>
                     <div class="toichiinfo">
                       <span style="font-size:16px;font-weight: 600;">分享统计</span>
                       <span>6,57</span>
@@ -72,8 +72,8 @@
                   </div>
                 </el-col>
                 <el-col :span="4">
-                  <div class="grid-content bg-purple" v-on:mouseover="touchi(6)" v-on:mouseout="leavei(6)">
-                    <i class="el-icon-box HomeIcon" id="toichi6" style="background-color: #eeeeee;color:#40c9c6;"></i>
+                  <div class="grid-content bg-purple border" v-on:mouseover="touchi(6)" v-on:mouseout="leavei(6)">
+                    <i class="el-icon-box HomeIcon" id="toichi6" style="background-color: #fff;color:#40c9c6;"></i>
                     <div class="toichiinfo">
                       <span style="font-size:16px;font-weight: 600;">出库数量</span>
                       <span>1,254</span>
@@ -85,9 +85,9 @@
           </el-row>
           <el-row>
             <el-col :span="24" style="margin-bottom:20px">
-              <div class="grid-content bg-purple-dark">
-                <h1 style="margin:0px;background-color:#eeeeee;padding-top: 10px;font-weight: 300;">每天访问数量</h1>
-                <div id="map" style="width:100%;height:326px;background-color:#eeeeee"></div>
+              <div class="grid-content bg-purple-dark border">
+                <h1 style="margin:0px;background-color:#fff;padding-top: 10px;font-weight: 300;">每天访问数量</h1>
+                <div id="map" style="width:100%;height:326px;background-color:#fff"></div>
               </div>
             </el-col>
           </el-row>
@@ -219,22 +219,22 @@ export default {
     },
     leavei(val){
       if (val == 1) {
-        document.getElementById('toichi1').style.background = '#eeeeee'
+        document.getElementById('toichi1').style.background = '#fff'
         document.getElementById('toichi1').style.color = '#2d8cf0'
       }else if(val == 2){
-        document.getElementById('toichi2').style.background = '#eeeeee'
+        document.getElementById('toichi2').style.background = '#fff'
         document.getElementById('toichi2').style.color = '#f25d42'
       }else if(val == 3){
-        document.getElementById('toichi3').style.background = '#eeeeee'
+        document.getElementById('toichi3').style.background = '#fff'
         document.getElementById('toichi3').style.color = '#64d572'
       }else if(val == 4){
-        document.getElementById('toichi4').style.background = '#eeeeee'
+        document.getElementById('toichi4').style.background = '#fff'
         document.getElementById('toichi4').style.color = '#f4516c'
       }else if(val == 5){
-        document.getElementById('toichi5').style.background = '#eeeeee'
+        document.getElementById('toichi5').style.background = '#fff'
         document.getElementById('toichi5').style.color = '#e46cbb'
       }else if(val == 6){
-        document.getElementById('toichi6').style.background = '#eeeeee'
+        document.getElementById('toichi6').style.background = '#fff'
         document.getElementById('toichi6').style.color = '#40c9c6'
       }
     },
@@ -274,7 +274,6 @@ export default {
 }
 .Carouselchart{
   overflow: hidden;
-  background-color: #ffffff;
   padding: 20px;
   width: 97%;
 }
@@ -326,7 +325,7 @@ export default {
   border-radius: 4px;
 }
 .bg-purple {
-  background: #eee;
+  background: #fff;
   text-align: left;
 }
 .grid-content {
@@ -352,5 +351,9 @@ export default {
   width: 100%;
   display: block;
   margin-top: 5px;
+}
+.border{
+  border: 1px solid #EBEEF5;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }
 </style>
