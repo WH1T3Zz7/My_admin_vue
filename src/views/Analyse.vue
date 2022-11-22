@@ -209,7 +209,7 @@ export default {
   mounted(){
     this.headHeight()
     this.mycharts()
-    window.addEventListener('resize',this.headHeight)
+    // window.addEventListener('resize',this.headHeight)
   },
   methods:{
     mycharts(){
