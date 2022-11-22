@@ -372,6 +372,7 @@ export default {
   float: left;
 }
 .team p{
+  margin-top: 6px;
   margin-left: 10px;
   float: left;
 }
