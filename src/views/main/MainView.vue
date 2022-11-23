@@ -101,12 +101,20 @@
           </div>
           <div v-for="(item,index) in dynamicsrc" :key="index" class="text item">
             <div class="dynamic">
-              <img :src="item.url">
-              <div class="name">
-                <span>{{item.dynamicname}}</span>
-              </div>
-              <span>{{item.time}}</span>
+              <el-row :gutter="20">
+                  <el-col :span="4"><div class="grid-content bg-purple">
+                    <img :src="item.url">
+                  </div></el-col>
+                  <el-col :span="20"><div class="grid-content bg-purple">
+                    <div class="dynamic-name">
+                      <span>{{item.dynamicname}}</span>
+                    </div>
+                    <span>{{item.time}}</span>
+                  </div></el-col>
+                </el-row>
+                <el-row><div class="dynamic-main">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.main}}</div></el-row>
             </div>
+            
           </div>
         </el-card>
       </div></el-col>
@@ -127,12 +135,12 @@ export default {
         { url: require('/src/assets/Home/4.jpeg') },
       ],
       dynamicsrc:[
-        { url: require('/src/assets/avata/avatar1.jpg'), dynamicname:'杠铁侠', time:'News released 2 hours ago'},
-        { url: require('/src/assets/avata/avatar2.jpg'), dynamicname:'对胀', time:'Released 9 hours ago'},
-        { url: require('/src/assets/avata/avatar3.jpg'), dynamicname:'只猪霞', time:'Released 10 hours ago'},
-        { url: require('/src/assets/avata/avatar4.jpg'), dynamicname:'鞭福峡', time:'Released 32 hours ago'},
-        { url: require('/src/assets/avata/avatar5.jpg'), dynamicname:'抄仁', time:'Two day release'},
-        { url: require('/src/assets/avata/avatar6.jpg'), dynamicname:'率距人', time:'An update was released three days ago'},
+        { url: require('/src/assets/avata/avatar1.jpg'), dynamicname:'杠铁侠', time:'News released 2 hours ago',main:'计算机技术的应用促进各个领域发展，加快了社会的发展。在知识经济时代参与下，资本的分配形式发生改变，不是以工作量与工作时间进行计算，而是以知识技术的参与度进行资产的分配'},
+        { url: require('/src/assets/avata/avatar2.jpg'), dynamicname:'对胀', time:'Released 9 hours ago',main:'计算机技术的应用改变了社会，但人们应该积极面对相关问题，提出解决措施，但还是要积极应用计算机技术解决工作中的实际问题，我们必须正确应用计算机技术。'},
+        { url: require('/src/assets/avata/avatar3.jpg'), dynamicname:'只猪霞', time:'Released 10 hours ago',main:'计算机应用软件的相关内容,计算机应用软件的开发,计算机应用软件的有效维护。'},
+        { url: require('/src/assets/avata/avatar4.jpg'), dynamicname:'鞭福峡', time:'Released 32 hours ago',main:'经济的快速发展对我国公路建设提出了更高的要求，新建公路总里程不断增加.由于公路、铁路等道路的勘察地形复杂、工作难度大、误差机率高等因素使得道路勘察工作成为了道路建设发展的瓶颈。'},
+        { url: require('/src/assets/avata/avatar5.jpg'), dynamicname:'抄仁', time:'Two day release',main:'计算机硬件故障的分析方法,计算机硬件安全维护相关措施。'},
+        { url: require('/src/assets/avata/avatar6.jpg'), dynamicname:'率距人', time:'An update was released three days ago',main:'虚拟络技术日益成熟，其应用范围也不变得更加广泛。在络的技术下，对相关的软件进行应用，共享信息资源,从而使信息资源的利用率能够打破传统，信息资源的利用效果能够得到进一步提升。'},
       ],
     }
   },
@@ -252,12 +260,20 @@ export default {
   padding: 10px;
 }
 .dynamic{
-  width: 100%;
+  width: 95%;
   height: 150px;
-  background-color: #eeeeee;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   text-align: left;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
+  &-name{
+    width: 100%;
+    overflow: hidden;
+  }
+  &-main{
+    width: 100%;
+    font-weight: 300;
+  }
 }
 .dynamic img{
   width: 50px;
@@ -267,10 +283,6 @@ export default {
   float: left;
   margin-left: 10px;
   margin-bottom: 5px;
-}
-.name{
-  width: 22%;
-  overflow: hidden;
 }
 .Carouselchart{
   overflow: hidden;
