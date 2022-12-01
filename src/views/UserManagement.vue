@@ -2,6 +2,7 @@
 <template>
   <div class="User" style="margin-right: 18px;">
     <div class="Management" v-if="IsManagement">
+      <!-- 查询 -->
       <div class="screeningUser">
         <el-row :gutter="20">
           <el-col :span="18">
@@ -9,12 +10,12 @@
               <el-row :gutter="20">
                 <el-col :span="6">
                   <div class="grid-content bg-purple">
-                    <el-input v-model="UserIdValue" placeholder="请输入ID" style="width:80%"></el-input>
+                    <el-input v-model="query.UserIdValue" placeholder="请输入ID" style="width:80%"></el-input>
                   </div>
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content bg-purple">
-                    <el-select v-model="UserNameValue" filterable placeholder="请输入用户姓名">
+                    <el-select v-model="query.UserNameValue" filterable placeholder="请输入用户姓名">
                     <el-option
                       v-for="item in UserName"
                       :key="item.value"
@@ -26,7 +27,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content bg-purple">
-                    <el-select v-model="UserItemValue" filterable placeholder="请输入团队">
+                    <el-select v-model="query.UserItemValue" filterable placeholder="请输入团队">
                     <el-option
                       v-for="item in UserItem"
                       :key="item.value"
@@ -38,7 +39,7 @@
                 </el-col>
                 <el-col :span="6">
                   <div class="grid-content bg-purple">
-                    <el-select v-model="UserPostionValue" filterable placeholder="请输入职位">
+                    <el-select v-model="query.UserPostionValue" filterable placeholder="请输入职位">
                     <el-option
                       v-for="item in UserPostion"
                       :key="item.value"
@@ -147,7 +148,7 @@
           <el-button type="primary" @click="addDatadialog = false" v-show="Isfun == 3">确 定</el-button>
         </div>
       </el-dialog>
-      <Table :UserData="Userdata" :tableConfig="tableconfig"></Table>
+      <Table :UserData="TableData" :tableConfig="tableconfig"></Table>
     </div>
     <router-view v-if="!IsManagement"></router-view>
   </div>
@@ -164,6 +165,7 @@ export default {
   data(){
     return{
       Userdata:[],
+      TableData:[],
       tableconfig:[],
       IsManagement: true, //控制显示
       UserItem: [{
@@ -226,10 +228,12 @@ export default {
           label: '率距人'
         }
       ],
-      UserIdValue: '',    //ID
-      UserNameValue: '',  //姓名
-      UserItemValue:'',   //团队
-      UserPostionValue:'',//职位
+      query:{
+        UserIdValue: '',    //ID
+        UserNameValue: '',  //姓名
+        UserItemValue:'',   //团队
+        UserPostionValue:'',//职位
+      },
       addDatadialog:false,  //编辑添加遮罩
       dialogtitle:"新增用户", 
       Isfun:'1',  //控制遮罩中确认按钮的显示1：增加，2：编辑，3：查看
@@ -316,84 +320,82 @@ export default {
       ]
     },
     queryData(){  //查询
-      this.Userdata = []
-      UserData.forEach((item,index)=>{
-        if (this.UserIdValue != '') {
-          if (item.UserId == this.UserIdValue) {
-            this.Userdata[index] = item
-            this.UserIdValue = ''
-          }
-          if(this.UserNameValue != '' && this.Userdata != ''){
-            if (this.Userdata[index].UserNameValue == this.UserNameValue) {
-              this.Userdata[index] = item
-              this.UserNameValue = ''
-            }else{
-              this.Userdata = []
+      this.TableData = []
+      this.Userdata.forEach((item,index) => {
+        if (this.query.UserIdValue != '') {
+          if (this.query.UserIdValue == item.UserId) {
+            this.TableData.push(this.Userdata[index])
+            if (this.query.UserNameValue != '') {
+              if (this.query.UserNameValue == item.UserNameValue) {
+                return
+              }else{
+                this.TableData = []
+                return
+              }
+            }
+            if(this.query.UserItemValue != ''){
+              if (this.query.UserItemValue == item.UserItemValue) {
+                return
+              }else{
+                this.TableData = []
+                return
+              }
+            }
+            if(this.query.UserPostionValue != ''){
+              if (this.query.UserPostionValue == item.UserPostionValue) {
+                return
+              }else{
+                this.TableData = []
+                return
+              }
             }
           }
-          if(this.UserItemValue != '' && this.Userdata != ''){
-            if (this.Userdata[index].UserItemValue == this.UserItemValue) {
-              this.Userdata[index] = item
-              this.UserItemValue = ''
-            }else{
-              this.Userdata = []
+        }else if (this.query.UserNameValue != '') {
+          if (this.query.UserNameValue == item.UserNameValue) {
+            this.TableData.push(this.Userdata[index])
+            if(this.query.UserItemValue != ''){
+              if (this.query.UserItemValue == item.UserItemValue) {
+                return
+              }else{
+                this.TableData = []
+                return
+              }
+            }
+            if(this.query.UserPostionValue != ''){
+              if (this.query.UserPostionValue == item.UserPostionValue) {
+                return
+              }else{
+                this.TableData = []
+                return
+              }
             }
           }
-          if(this.UserPostionValue != '' && this.Userdata != ''){
-            if (this.Userdata[index].UserPostionValue == this.UserPostionValue) {
-              this.Userdata[index] = item
-              this.UserPostionValue = ''
-            }else{
-              this.Userdata = []
+        }else if (this.query.UserItemValue != '') {
+          if (this.query.UserItemValue == item.UserItemValue) {
+            this.TableData.push(this.Userdata[index])
+            if(this.query.UserPostionValue != ''){
+              if (this.query.UserPostionValue == item.UserPostionValue) {
+                return
+              }else{
+                this.TableData = []
+                return
+              }
             }
           }
-        }else if(this.UserNameValue != ''){
-          if (item.UserNameValue == this.UserNameValue) {
-            this.Userdata[index] = item
-            this.UserNameValue = ''
+        }else if (this.query.UserPostionValue != '') {
+          if (this.query.UserPostionValue == item.UserPostionValue) {
+            this.TableData.push(this.Userdata[index])
           }
-          if(this.UserItemValue != '' && this.Userdata != ''){
-            if (this.Userdata[index].UserItemValue == this.UserItemValue) {
-              this.Userdata[index] = item
-              this.UserItemValue = ''
-            }else{
-              this.Userdata = []
-            }
-          }
-          if(this.UserPostionValue != '' && this.Userdata != ''){
-            if (this.Userdata[index].UserPostionValue == this.UserPostionValue) {
-              this.Userdata[index] = item
-              this.UserPostionValue = ''
-            }else{
-              this.Userdata = []
-            }
-          }
-        }else if(this.UserItemValue != ''){
-          if (item.UserItemValue == this.UserItemValue) {
-            this.Userdata[index] = item
-            this.UserItemValue = ''
-          }
-          if(this.UserPostionValue != '' && this.Userdata != ''){
-            if (this.Userdata[index].UserPostionValue == this.UserPostionValue) {
-              this.Userdata[index] = item
-              this.UserPostionValue = ''
-            }else{
-              this.Userdata = []
-            }
-          }
-        }else if(this.UserPostionValue != ''){
-          if (item.UserPostionValue == this.UserPostionValue) {
-            this.Userdata[index] = item
-            this.UserPostionValue = ''
-          }
+        }else{
+          this.TableData = this.Userdata
         }
-      })
-      this.UserNameValue = ''
-      this.UserItemValue = ''
-      this.UserPostionValue = ''
+      });
     },
     resetData(){  //重置
-      this.Userdata = UserData
+      this.query.UserIdValue = ''
+      this.query.UserNameValue = ''
+      this.query.UserItemValue = ''
+      this.query.UserPostionValue = ''
     },
     isaddDatadialog(){  //增加遮罩事件
       this.dialogtitle = '新增用户'
@@ -429,6 +431,7 @@ export default {
   mounted(){
     this.path()
     this.Userdata = UserData
+    this.TableData = UserData
     this.Tableconfig()
   },
   watch: {
