@@ -173,7 +173,7 @@ export default {
           label: '塔斯克工业'
         }, {
           value: '2',
-          label: '复仇者联盟'
+          label: '富仇者联盟'
         }, {
           value: '3',
           label: '奥创科技'

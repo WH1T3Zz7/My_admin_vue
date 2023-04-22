@@ -20,7 +20,7 @@ const UserData = [
     "UserNameValue":'2',
     "UserGender":"男",
     "UserAge":"28",
-    "UserItem":"复仇者联盟",
+    "UserItem":"富仇者联盟",
     "UserItemValue":"2",
     "UserPostion":"Web前端工程师",
     "UserPostionValue":"2",

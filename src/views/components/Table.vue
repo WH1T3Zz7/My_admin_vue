@@ -54,7 +54,7 @@
       <el-table-column
         fixed="right"
         label="操作"
-        width="100">
+        width="150">
         <template slot-scope="scope">
           <el-button @click="viewuserdata(scope.row)" type="text" size="small">查看</el-button>
           <el-button @click="editortypeuserdata(scope.row)" type="text" size="small">编辑</el-button>
@@ -265,7 +265,7 @@ export default {
           label: '塔斯克工业'
         }, {
           value: '2',
-          label: '复仇者联盟'
+          label: '富仇者联盟'
         }, {
           value: '3',
           label: '奥创科技'

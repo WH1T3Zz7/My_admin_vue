@@ -70,6 +70,11 @@ export default {
   mounted() {
     this.form.name = 'admin'
     this.form.password = '123456'
+  },
+  beforeCreate(){
+    if (localStorage.getItem('token')) {
+      this.$router.push('/home')
+    }
   }
 }
 </script>

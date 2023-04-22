@@ -32,7 +32,7 @@
       <el-row>
         <el-col :span="8"><div class="grid-content bg-purple teamInfo">
           <img src="@/assets/img/app/APPC.png" alt="APPC">
-          <p>复仇者联盟</p>
+          <p>富仇者联盟</p>
         </div></el-col>
         <el-col :span="8"><div class="grid-content bg-purple-light">
           <img src="@/assets/img/app/dingtalk.png" alt="DingTalk">
@@ -78,7 +78,7 @@
                 那是一种内在的东西， 他们到达不了，也无法触及的 
               </div>
               <div class="Demoinfobottom">
-                <span>复仇者联盟</span>
+                <span>富仇者联盟</span>
                 <time>刚刚</time>
               </div>
             </el-card>
@@ -189,7 +189,7 @@
       <div class="dynamicInfo">
         <img src="@/assets/avata/avatar2.jpg" alt="">
         <span>@对胀</span>在
-        <span style="color:#66b1ff;cursor:pointer;margin: 0px;">复仇者联盟</span>
+        <span style="color:#66b1ff;cursor:pointer;margin: 0px;">富仇者联盟</span>
         <span>更新</span>
         <span style="color:#66b1ff;cursor:pointer;margin: 0px;">优化项目</span>
         <p>2022/10/24  11:30:57</p>

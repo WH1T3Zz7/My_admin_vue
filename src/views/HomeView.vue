@@ -37,6 +37,9 @@ export default {
 body > .el-container {
   margin-bottom: 40px;
 }
+.el-container{
+  background-color: #f0f2f5;
+}
 body,html{
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   padding: 0;

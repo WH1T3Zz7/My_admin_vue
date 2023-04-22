@@ -152,7 +152,7 @@ export default {
               color:"rgb(110, 112, 121)"
             }
           },
-          axisTick:{ //坐标轴刻度相关设置。
+          axisTick:{ //坐标轴刻度相关设置。 
               show :false,
           },
           splitLine:{  //坐标在grid区域的分割线
